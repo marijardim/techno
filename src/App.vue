@@ -1,30 +1,56 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view/>
+  <div id="app">
+    <HeaderComponent />
+    <router-view class="container" />
+  </div>
 </template>
-
+<script>
+import HeaderComponent from '@/components/HeaderComponent.vue'
+export default {
+  components: {
+    HeaderComponent
+  }
+}
+</script>
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+body {
+  margin: 0;
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  color: #234;
 }
-
-nav {
-  padding: 30px;
+img{
+  max-width: 100%;
 }
-
-nav a {
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+a {
   font-weight: bold;
-  color: #2c3e50;
+  text-decoration: none;
+  color: #234;
 }
-
-nav a.router-link-exact-active {
-  color: #42b983;
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+.v-enter-from{
+  opacity: 0;
+  transform: translate3d(-20px,0,0);
+}
+.v-enter-active {
+  transition: all .3s;
+}
+.conteudo{
+  display: grid;
+  grid-template-columns: 1fr minmax(200px, 400px);
+  gap: 30px;
+}
+@media screen and (max-width: 400px) {
+  .conteudo {
+    display: block
+  }
 }
 </style>
